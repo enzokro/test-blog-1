@@ -1,42 +1,79 @@
 [
   {
-    "objectID": "core.html",
-    "href": "core.html",
-    "title": "core",
-    "section": "",
-    "text": "source\n\nfoo\n\n foo ()",
-    "crumbs": [
-      "core"
-    ]
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "test-blog-1",
     "section": "",
-    "text": "This file will become your README and also the index of your documentation.",
-    "crumbs": [
-      "test-blog-1"
-    ]
+    "text": "::: {#cell-0 .cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\n:::"
   },
   {
     "objectID": "index.html#install",
     "href": "index.html#install",
     "title": "test-blog-1",
     "section": "Install",
-    "text": "Install\npip install test_blog_1",
-    "crumbs": [
-      "test-blog-1"
-    ]
+    "text": "Install\npip install test_blog_1"
   },
   {
     "objectID": "index.html#how-to-use",
     "href": "index.html#how-to-use",
     "title": "test-blog-1",
     "section": "How to use",
-    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2",
-    "crumbs": [
-      "test-blog-1"
-    ]
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2"
+  },
+  {
+    "objectID": "blog/posts/my-first-blog-post/index.html",
+    "href": "blog/posts/my-first-blog-post/index.html",
+    "title": "Recreating the Lesson 2 blog post",
+    "section": "",
+    "text": "This notebook has two goals:\n- Create a blog and publish a post.\n- Build a small, dynamic python library for a HuggingFace Sentiment Analysis pipeline."
+  },
+  {
+    "objectID": "blog/posts/my-first-blog-post/index.html#goals",
+    "href": "blog/posts/my-first-blog-post/index.html#goals",
+    "title": "Recreating the Lesson 2 blog post",
+    "section": "",
+    "text": "This notebook has two goals:\n- Create a blog and publish a post.\n- Build a small, dynamic python library for a HuggingFace Sentiment Analysis pipeline."
+  },
+  {
+    "objectID": "blog/posts/my-first-blog-post/index.html#intro",
+    "href": "blog/posts/my-first-blog-post/index.html#intro",
+    "title": "Recreating the Lesson 2 blog post",
+    "section": "Intro:",
+    "text": "Intro:\nWe use the nbdev library for both tasks. nbdev is a powerful tool inspired by two main ideas:\n- Literate Programming.\n- Exploratory Programming.\nThe next section briefly covers these ideas and why their combination is so powerful.\n\nLiterate Programming\nIn Literate Programming, text descriptions are woven directly into a project’s source code. This is different from most codebases where documentation exists in a separate set of files.\nCode, tests, and documentation are all first-class citizens in Literate Programming. For example in nbdev a Notebook is the unified source of all three things. Instead of having to independently manage code, docs, and tests, everything happens in the Notebook. If the Notebook runs then you know your code will run.\nThis tight loop between what you’re doing (the code), describing what you’re doing (the documentation), and making sure it’s correct (tests) is a great approach for both research and thinking in general.\n\n\nExploratory Programming\nExploratory Programming is an open-ended approach for tackling new problems and unknown domains. It’s very helpful at the start of a project while its scope or requirements are being finalized.\nThe dynamic, interactive nature of Notebooks is ideal for Exploratory Programming. It makes the barrier to try new things extremely low. And it’s fun! Jupyter also has many more advanced tools to inspect code and debug its outputs.\n\n\nCombining Literate and Exploratory Programming\nnbdev’s main workflow combines these two ideas. It’s a great approach for trying things out, figuring out what they do, and how they work. We can poke around and explore codebases in a much more interactive way than usual. Iterations are fast and cheap so it’s easy to follow any hit of curiosity. And if anything breaks, we can always restart the Notebook and try again.\nThese ideas can be mix and matched on the fly. For example at the start of a project, while figuring out the problem space, we might lean Exploratory. Then, as the idea matures, we pivot more Literate to refine and crystallize our approach.\nNow for the first goal: creating and publishing a blog post."
+  },
+  {
+    "objectID": "blog/posts/my-first-blog-post/index.html#turning-notebooks-into-blog-posts",
+    "href": "blog/posts/my-first-blog-post/index.html#turning-notebooks-into-blog-posts",
+    "title": "Recreating the Lesson 2 blog post",
+    "section": "Turning Notebooks into Blog Posts",
+    "text": "Turning Notebooks into Blog Posts\nFirst, a high-level summary of how the blog will be created and published with nbdev\n\nHigh-Level Steps:\n\nCreate a new nbdev project.\n\nSet it up to be a publishable blog.\n\nBuild and publish the blog to Github pages.\n\nnbdev leverages a tool called Quarto for blogging. Quarto is a publishing framework tailored for scientific and technical articles and posts. In a way it’s a blogging platform for Literate Programming, where a series of code commands tells a story that takes its reader on a journey.\n\n\n\nCreating a new nbdev project\nnbdev works on top of a Git repo, so the first step is creating a new, empty repository. There is a handy Github link that takes us straight to the page for creating new repos.\n\nNote: We need a completely empty repo. Don’t include a .gitignore or README.md or License.\n\nIn this example the empty repo is called sample_blog, but feel free to call it anything you’d like. We’re not tied to this name either. We can always create new repos with different, better names.\nClone the empty new repo to your computer. Make sure to change the github link below so it points to your repo instead.\n# clone the repo to your computer\ngit clone https://github.com/enzokro/sample_blog.git # &lt;-- ! link with your repo here\nNow we can go into this repo and let nbdev work its initialization magic. Run the nbdev_new command to start. It will prompt you for some general info like a short description about the project.\n# move into the new repo and initialize the nbdev project\ncd sample_blog/\nnbdev_new\nAll of the options and configs for the project are in the settings.ini file. nbdev looks in this file when it needs any information for its commands.\nAfter nbdev_new finishes, you will have a brand new nbdev project!\nRun a git status command to see everything that was added. Then we commit and push these changes to Github.\n# add, commit, and push the files created by nbdev\ngit add .\ngit commit -m'Initial nbdev project creation'\ngit push\nAs we mentioned earlier, nbdev leverages Quarto for publishing Notebooks. Let’s take a look at how to turn this project into a proper Quarto blog.\n\n\nAdding Quarto to the Mix\nStart by activating the virtual environment:\n# activate the environment\nmamba activate llm_base\nInstall Quarto via nbdev by running the nbdev_install_quarto command. Note that the command will ask for admin privileges.\n# install quarto\nnbdev_install_quarto\nYou may need to refresh the terminal before it can find the quarto commands. To be safe, open up a new terminal and re-activate the environment. Now the command below will check if Quarto was installed right.\n# shows us where quarto was installed\nwhich quarto \n\nTurning an nbdev project into a Quarto blog\nIn a typical nbdev project the Notebooks all live inside of the nbs/ folder. These are the Notebooks that eventually become a project’s documentation, tests, and source code.\nFor Quarto to instead publish Notebooks as blog posts, we need to add a few files and folders to the nbs/ folder.\nHere is how a nbs/ folder primed for its first blog post will look:\nInitial Structure for Quarto Blog:\nsample_blog\n└───nbs/\n│   │   _quarto.yml\n│   │   index.ipynb\n│   └───blog/\n│       │   index.qmd\n│       └───posts/\n│           └───2023-09-27-Blog-Intro/     \n│               │   index.ipynb\nThe main change we are making is adding a blog/ folder inside of the nbs/ directory. Inside we place an index.qmd file at the top-level that tells Quarto about our blog. For example, here’s an index.qmd file that describes our blog and how its posts should be listed:\n---\ntitle: Example Blog\nsubtitle: Publishing with Quarto and nbdev\nlisting:\n  sort: \"date desc\"\n  contents: \"posts\"\n  sort-ui: false\n  filter-ui: false\n  categories: true\n  feed: true\npage-layout: full\n---\nEach post gets its own folder so we can stay better organized. Inside each folder is an index.ipynb Notebook with the post’s actual content. We can also add photos, videos, and any other media that enhances the post to the folder.\nIn this case, we are going a bit meta and using this Notebook itself as index.ipynb in the folder called 2023-09-27-Blog-Intro/.\nIn other words this Notebook will also be our first blog post.\n\n\nHosting the Blog on Github Pages\nNext, we will build and host our site on Github’s Pages platform for free. The screenshot below shows the settings we need for the repo to be published as a blog.\n\nSpecifically, we need to set Deploy from a branch under the Build and deployment section, and pick the gh-pages branch. gh-pages is a special branch where Quarto parses our Notebooks into a proper website.\nNow we can run the quarto publish command to build and publish the blog.\n# publish the blog on github pages\nquarto publish\nAnd there we go! Click here for a live link to this Notebook as a blog post. The first task is now complete. On to the next one."
+  },
+  {
+    "objectID": "blog/posts/my-first-blog-post/index.html#creating-python-libraries-with-nbdev",
+    "href": "blog/posts/my-first-blog-post/index.html#creating-python-libraries-with-nbdev",
+    "title": "Recreating the Lesson 2 blog post",
+    "section": "Creating python libraries with nbdev",
+    "text": "Creating python libraries with nbdev\nNext we will build a small, dynamic python library. The library itself is a thin wrapper around a HuggingFace Sentiment Analysis pipeline.\nnbdev exports Notebooks into complete python libraries by parsing the code cells and extracting what it needs.\nWe can tell it how to process a code cell using Quarto directives that go at the start of a cell. Directives start with the special string #|, which is similar to the shebang string #! you may have seen in other scripts.\nFor example, the default_exp directive is used to name the output python file. Here we use it to name this specific python file as lesson_2/simple_pipeline.py:\n#| default_exp lesson_2.simple_pipeline\nNow that we’ve named our soon-to-be python file we can implement the actual pipeline. An export directive in a code cell tells nbdev that we want the code inside to be part of the python file.\n\nNote: Quarto removes directive while parsing the Notebook, which is why it doesn’t show up in the cell below. You can find the directives in the code cells of the [original Notebook].\n\n::: {#cell-50 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’ execution_count=2}\n# imports the pieces for the pipeline\nfrom transformers import AutoConfig\nfrom transformers import AutoTokenizer\nfrom transformers import AutoModelForSequenceClassification\n:::\nNext, we refactor the code from the previous notebook (01_first_runs.ipynb) into a simple class.\n::: {#cell-52 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’ execution_count=3}\nclass SentimentPipeline:\n    def __init__(self, model_name):\n        \"\"\"\n        Sentiment Analysis pipeline.\n        \"\"\"\n        self.model_name = model_name\n        self.config = AutoConfig.from_pretrained(self.model_name)\n        self.tokenizer = AutoTokenizer.from_pretrained(self.model_name)\n        self.model = AutoModelForSequenceClassification.from_pretrained(self.model_name)\n\n\n    def preprocess(self, text: str):\n        \"\"\"\n        Sends `text` through the LLM's tokenizer.  \n        The tokenizer turns words and characters into special inputs for the LLM.\n        \"\"\"\n        tokenized_inputs = self.tokenizer(text, return_tensors='pt')\n        return tokenized_inputs\n    \n\n    def forward(self, text: str):\n        \"\"\"\n        First we preprocess the `text` into tokens.\n        Then we send the `token_inputs` to the model.\n        \"\"\"\n        token_inputs = self.preprocess(text)\n        outputs = self.model(**token_inputs)\n        return outputs\n    \n\n    def process_outputs(self, outs):\n        \"\"\"\n        Here we mimic the post-processing that HuggingFace automatically does in its `pipeline`.  \n        \"\"\"\n        # grab the raw scores from the model for Positive and Negative labels\n        logits = outs.logits\n\n        # find the strongest label score, aka the model's decision\n        pred_idx = logits.argmax(1).item()\n\n        # use the `config` object to find the actual class label\n        pred_label = self.config.id2label[pred_idx]  \n\n        # calculate the human-readable probability score for this class\n        pred_score = logits.softmax(-1)[:, pred_idx].item()\n\n        # return the predicted label and its score\n        return {\n            'label': pred_label,\n            'score': pred_score, \n        }\n    \n\n    def __call__(self, text: str):\n        \"\"\"\n        Overriding the call method to easily and intuitively call the pipeline.\n        \"\"\"\n        model_outs = self.forward(text)\n        preds = self.process_outputs(model_outs)\n        return preds\n\n    \n    def __repr__(self):\n        \"\"\"\n        Cleaner representation of the pipeline.\n        \"\"\"\n        return f\"SentimentAnalysis_{self.model_name}\"\n:::\nLet’s make sure that SentimentPipeline actually works, since live tests are one of the main benefits of Notebook coding! And since we don’t put an export directive in the cell below, it does not end up inside the exported python file either.\n\n# testing the pipeline\n\nfrom Fractal_LLM_Course.lesson_2.simple_pipeline import SentimentPipeline\n\n# loading the default Sentiment Analysis model\nmodel_name = 'distilbert-base-uncased-finetuned-sst-2-english'\nclassifier = SentimentPipeline(model_name) \n\n# make sure that the official HuggingFace example works as expected\nresults = classifier(\"We are very happy to show you the 🤗 Transformers library.\"); results\nassert results['label'] == 'POSITIVE'\n\nnbdev runs this notebook when it compiles the library, and if the tests fail then the build fails. So you can think of the code cell above as a unit test for the SentimentAnalysis pipeline. Writing tests like this alongside the source code is a great, built-in way of making sure that the library is always working.\n\nExporting the library\nWe can now export the Notebooks using the nbdev_export command. This command will create a file inside the top-level library folder Fractal_LLM_Course/. Per the default_exp directive, the file is nested in a folder, and its full path is lesson_2/simple_pipeline.py.\nMake sure to run the following code from the top-level of the repo.\n# export Notebooks into python files\nnbdev_export  \nThis library can now be installed with pip, just like with any other python library.\n# install the library as an editable install\npip install -e . \nBelow is an example of using the SentimentPipeline class in this library, after installation.\n# import the newly installed library \nfrom Fractal_LLM_Course.lesson_2.simple_pipeline import SentimentPipeline\n\n# use our custom SentimentAnalysis pipeline!\nmodel_name = 'distilbert-base-uncased-finetuned-sst-2-english'\nclassifier = SentimentPipeline(model_name) \nCongrats! We’ve now built and installed a full, working python library. This is just the start, nbdev has many other advanced tools you can read about here. This completes the second goal of this Notebook."
+  },
+  {
+    "objectID": "blog/posts/my-first-blog-post/index.html#references",
+    "href": "blog/posts/my-first-blog-post/index.html#references",
+    "title": "Recreating the Lesson 2 blog post",
+    "section": "References",
+    "text": "References\n\nOfficial nbdev tutorial.\nBlogging with nbdev."
+  },
+  {
+    "objectID": "00_core.html",
+    "href": "00_core.html",
+    "title": "core",
+    "section": "",
+    "text": "core\n\nFill in a module description here\n\n::: {#cell-2 .cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nfrom nbdev.showdoc import *\n:::\n::: {#cell-3 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}\ndef foo(): pass\n:::\n::: {#cell-4 .cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nimport nbdev; nbdev.nbdev_export()\n:::"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Example Blog",
+    "section": "",
+    "text": "Recreating the Lesson 2 blog post\n\n\n\n\n\n\nfractal\n\n\npython\n\n\nnbdev\n\n\n\n\n\n\n\n\n\nMar 5, 2024\n\n\nChris Kroenke\n\n\n\n\n\n\nNo matching items"
   }
 ]
