@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "test-blog-1"
+  site-url: "https://enzokro.github.io/test-blog-1"
+  description: "Example blog for the class"
+  repo-branch: main
+  repo-url: "https://github.com/enzokro/test-blog-1"
