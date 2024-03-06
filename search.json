@@ -1,24 +1,24 @@
 [
   {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Example Blog",
+    "section": "",
+    "text": "Recreating the Lesson 2 blog post\n\n\n\n\n\n\nfractal\n\n\npython\n\n\nnbdev\n\n\n\n\n\n\n\n\n\nMar 5, 2024\n\n\nChris Kroenke\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "test-blog-1",
+    "title": "Example Blog",
     "section": "",
-    "text": "::: {#cell-0 .cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\n:::"
+    "text": "Recreating the Lesson 2 blog post\n\n\n\n\n\n\nfractal\n\n\npython\n\n\nnbdev\n\n\n\n\n\n\n\n\n\nMar 5, 2024\n\n\nChris Kroenke\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "index.html#install",
-    "href": "index.html#install",
-    "title": "test-blog-1",
-    "section": "Install",
-    "text": "Install\npip install test_blog_1"
-  },
-  {
-    "objectID": "index.html#how-to-use",
-    "href": "index.html#how-to-use",
-    "title": "test-blog-1",
-    "section": "How to use",
-    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n1+1\n\n2"
+    "objectID": "00_core.html",
+    "href": "00_core.html",
+    "title": "core",
+    "section": "",
+    "text": "core\n\nFill in a module description here\n\n::: {#cell-2 .cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nfrom nbdev.showdoc import *\n:::\n::: {#cell-3 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}\ndef foo(): pass\n:::\n::: {#cell-4 .cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nimport nbdev; nbdev.nbdev_export()\n:::"
   },
   {
     "objectID": "blog/posts/my-first-blog-post/index.html",
@@ -61,19 +61,5 @@
     "title": "Recreating the Lesson 2 blog post",
     "section": "References",
     "text": "References\n\nOfficial nbdev tutorial.\nBlogging with nbdev."
-  },
-  {
-    "objectID": "00_core.html",
-    "href": "00_core.html",
-    "title": "core",
-    "section": "",
-    "text": "core\n\nFill in a module description here\n\n::: {#cell-2 .cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nfrom nbdev.showdoc import *\n:::\n::: {#cell-3 .cell 0=‘e’ 1=‘x’ 2=‘p’ 3=‘o’ 4=‘r’ 5=‘t’}\ndef foo(): pass\n:::\n::: {#cell-4 .cell 0=‘h’ 1=‘i’ 2=‘d’ 3=‘e’}\nimport nbdev; nbdev.nbdev_export()\n:::"
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Example Blog",
-    "section": "",
-    "text": "Recreating the Lesson 2 blog post\n\n\n\n\n\n\nfractal\n\n\npython\n\n\nnbdev\n\n\n\n\n\n\n\n\n\nMar 5, 2024\n\n\nChris Kroenke\n\n\n\n\n\n\nNo matching items"
   }
 ]

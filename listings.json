@@ -4,5 +4,11 @@
     "items": [
       "/blog/posts/my-first-blog-post/index.html"
     ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/blog/posts/my-first-blog-post/index.html"
+    ]
   }
 ]
